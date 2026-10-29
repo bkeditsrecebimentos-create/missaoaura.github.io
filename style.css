@@ -1,0 +1,355 @@
+:root {
+    --fundo: #050b1a;
+    --painel: rgba(13, 25, 54, 0.75);
+    --borda: rgba(34, 211, 238, 0.25);
+    --ciano: #22d3ee;
+    --azul: #3b82f6;
+    --violeta: #8b5cf6;
+    --texto: #e6f0ff;
+    --texto-suave: #9fb3d1;
+    --erro: #ff8aa1;
+    --espaco: 20px;
+    --raio: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--fundo);
+}
+
+.pagina {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 32px var(--espaco) 48px;
+}
+
+.cabecalho {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 14px;
+    color: var(--texto-suave);
+}
+
+h1 {
+    margin: 6px 0 0;
+    font-size: 56px;
+    letter-spacing: 4px;
+    color: var(--azul);
+}
+
+.subtitulo {
+    margin: 5px 0 0;
+    font-size: 18px;
+    color: var(--texto-suave);
+}
+
+.codigo {
+    display: inline-block;
+    margin: 13px 0 0;
+    padding: 2px 13px;
+    border: 1px solid var(--violeta);
+    border-radius: 999px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+    color: #c4b5fd;
+}
+
+.card {
+    margin-bottom: var(--espaco);
+    padding: 24px;
+    background: var(--painel);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    backdrop-filter: blur(6px);
+}
+
+.introducao h2,
+.resultado h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.introducao p {
+    margin-bottom: 0;
+    color: var(--texto-suave);
+}
+
+fieldset {
+    margin: 0 0 24px;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+legend {
+    padding: 0;
+    margin-bottom: 13px;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ciano);
+}
+
+.campo {
+    margin-bottom: 16px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--texto-suave);
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px 14px;
+    font: inherit;
+    color: var(--texto);
+    background: rgba(5, 11, 26, 0.8);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    color-scheme: dark;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-color: var(--ciano);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.25);
+}
+
+.campo-invalido {
+    border-color: var(--erro) !important;
+}
+
+.erro {
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: var(--erro);
+}
+
+.aviso {
+    margin: 0 0 16px;
+    padding: 0;
+    color: var(--erro);
+    font-weight: 600;
+}
+
+.aviso:empty {
+    display: none;
+}
+
+.opcoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.opcao {
+    display: block;
+    cursor: pointer;
+}
+
+.opcao input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.cartao {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+    height: 100%;
+    padding: 14px;
+    background: rgba(5, 11, 26, 0.6);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.letra {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 14px;
+    color: var(--ciano);
+    border: 1px solid var(--ciano);
+}
+
+.opcao:hover .cartao {
+    border-color: var(--azul);
+    transform: translateY(-2px);
+}
+
+.opcao input:focus-visible + .cartao {
+    outline: 3px solid var(--ciano);
+    outline-offset: 2px;
+}
+
+.opcao input:checked + .cartao {
+    border-color: var(--ciano);
+}
+
+.opcao input:checked + .cartao .letra {
+    background: var(--ciano);
+    color: var(--fundo);
+}
+
+.botao {
+    display: block;
+    width: 100%;
+    padding: 15px 19px;
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #1e74d1;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);
+}
+
+.botao:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+.botao-secundario {
+    margin-top: 24px;
+    color: var(--texto);
+    background: transparent;
+    border: 1px solid var(--violeta);
+}
+
+.botao-secundario:hover {
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+}
+
+.resultado {
+    animation: aparecer 0.5s ease;
+}
+
+.dados-resultado {
+    margin-top: 0;
+    color: var(--texto-suave);
+    overflow-wrap: anywhere;
+}
+
+.dados-resultado strong {
+    color: var(--texto);
+}
+
+.mensagem {
+    color: var(--texto-suave);
+}
+
+.lista-perfis {
+    display: grid;
+    gap: var(--espaco);
+}
+
+.perfil {
+    overflow: hidden;
+    background: rgba(5, 11, 26, 0.6);
+    border: 1px solid var(--violeta);
+    border-radius: 12px;
+}
+
+.perfil img,
+.imagem-reserva {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.imagem-reserva {
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--texto-suave);
+}
+
+.perfil-texto {
+    padding: 16px 19px 19px;
+}
+
+.perfil-texto h3 {
+    margin: 0 0 3px;
+    font-size: 21px;
+    color: var(--ciano);
+}
+
+.categoria {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #c4b5fd;
+}
+
+.perfil-texto p:last-child {
+    margin-bottom: 0;
+}
+
+.rodape {
+    text-align: center;
+    font-size: 14px;
+    color: var(--texto-suave);
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 500px) {
+    .pagina {
+        padding: 19px 13px 32px;
+    }
+
+    h1 {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .opcoes {
+        grid-template-columns: 1fr;
+    }
+
+    .botao {
+        padding: 16px;
+    }
+}
