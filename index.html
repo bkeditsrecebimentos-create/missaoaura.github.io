@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão Aura — Descubra seu perfil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="pagina">
+
+        <header class="cabecalho">
+            <h1>Missão Aura</h1>
+            <p class="subtitulo">Descubra seu perfil</p>
+        </header>
+
+        <main>
+            <section class="card introducao">
+                <h2>Uma nova fronteira espera pela equipe</h2>
+                <p>
+                    Em 2089, a sextagesima setima nave Aura se prepara para pousar em um planeta desconhecido.
+                    Informe seus dados e responda a quatro perguntas para descobrir qual
+                    função combina mais com você nessa expedição.
+                </p>
+            </section>
+
+            <form id="formulario" class="card" novalidate>
+                <p id="aviso-geral" class="aviso" role="alert"></p>
+
+                <fieldset class="grupo-dados">
+                    <legend>Dados do participante</legend>
+
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" autocomplete="name">
+                        <p class="erro" id="erro-nome" role="alert"></p>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nascimento">Data de nascimento</label>
+                        <input type="date" id="nascimento" name="nascimento">
+                        <p class="erro" id="erro-nascimento" role="alert"></p>
+                    </div>
+                </fieldset>
+
+                <fieldset class="pergunta">
+                    <legend>1. Diante de uma falha em um equipamento da nave, o que você faria?</legend>
+                    <div class="opcoes">
+                        <label class="opcao"><input type="radio" name="pergunta1" value="1"><span class="cartao"><b class="letra">A</b>Tentaria identificar e corrigir o problema técnico.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta1" value="2"><span class="cartao"><b class="letra">B</b>Analisaria os dados para descobrir a causa da falha.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta1" value="3"><span class="cartao"><b class="letra">C</b>Procuraria alternativas para resolver a situação.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta1" value="4"><span class="cartao"><b class="letra">D</b>Organizaria a equipe para definir um plano de ação.</span></label>
+                    </div>
+                    <p class="erro" id="erro-pergunta1" role="alert"></p>
+                </fieldset>
+
+                <fieldset class="pergunta">
+                    <legend>2. Qual atividade você gostaria de realizar no planeta desconhecido?</legend>
+                    <div class="opcoes">
+                        <label class="opcao"><input type="radio" name="pergunta2" value="1"><span class="cartao"><b class="letra">A</b>Construir estruturas e desenvolver tecnologias.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta2" value="2"><span class="cartao"><b class="letra">B</b>Pesquisar amostras e estudar formas de vida.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta2" value="3"><span class="cartao"><b class="letra">C</b>Explorar regiões e descobrir novos territórios.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta2" value="4"><span class="cartao"><b class="letra">D</b>Mapear o ambiente e planejar a expedição.</span></label>
+                    </div>
+                    <p class="erro" id="erro-pergunta2" role="alert"></p>
+                </fieldset>
+
+                <fieldset class="pergunta">
+                    <legend>3. Qual característica mais combina com você?</legend>
+                    <div class="opcoes">
+                        <label class="opcao"><input type="radio" name="pergunta3" value="1"><span class="cartao"><b class="letra">A</b>Criatividade para desenvolver soluções.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta3" value="2"><span class="cartao"><b class="letra">B</b>Curiosidade para investigar e aprender.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta3" value="3"><span class="cartao"><b class="letra">C</b>Disposição para experimentar coisas novas.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta3" value="4"><span class="cartao"><b class="letra">D</b>Organização para planejar e tomar decisões.</span></label>
+                    </div>
+                    <p class="erro" id="erro-pergunta3" role="alert"></p>
+                </fieldset>
+
+                <fieldset class="pergunta">
+                    <legend>4. Como você contribuiria com a equipe?</legend>
+                    <div class="opcoes">
+                        <label class="opcao"><input type="radio" name="pergunta4" value="1"><span class="cartao"><b class="letra">A</b>Corrigindo falhas e desenvolvendo equipamentos.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta4" value="2"><span class="cartao"><b class="letra">B</b>Investigando informações e apresentando descobertas.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta4" value="3"><span class="cartao"><b class="letra">C</b>Explorando o ambiente e encontrando oportunidades.</span></label>
+                        <label class="opcao"><input type="radio" name="pergunta4" value="4"><span class="cartao"><b class="letra">D</b>Coordenando tarefas e definindo estratégias.</span></label>
+                    </div>
+                    <p class="erro" id="erro-pergunta4" role="alert"></p>
+                </fieldset>
+
+                <button type="submit" class="botao">DESCOBRIR MEU PERFIL</button>
+            </form>
+
+            <section id="resultado" class="card resultado" hidden aria-live="polite">
+                <p class="dados-resultado">
+                    Participante: <strong id="resultado-nome"></strong> ·
+                    Idade: <strong id="resultado-idade"></strong>
+                </p>
+                <h2 id="resultado-titulo"></h2>
+                <p id="resultado-mensagem" class="mensagem"></p>
+                <div id="resultado-perfis" class="lista-perfis"></div>
+                <button type="button" id="botao-refazer" class="botao botao-secundario">Refazer</button>
+            </section>
+        </main>
+
+        <footer class="rodape">
+            <p>Missão Aura - Farme sua aura infinita</p>
+        </footer>
+    </div>
+</body>
+</html>
